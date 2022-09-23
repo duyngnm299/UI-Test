@@ -1,56 +1,51 @@
 package com.example.ui_test;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
+
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnClick;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
-        btnClick = (Button) findViewById(R.id.btnClick);
-        btnClick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                startActivity(intent);
-            }
-        });
+        ViewPager viewPager = findViewById(R.id.viewPager);
+
+        AuthenticationPagerAdapter pagerAdapter = new AuthenticationPagerAdapter(getSupportFragmentManager());
+        pagerAdapter.addFragmet(new FragmentLogin());
+        pagerAdapter.addFragmet(new FragmentRegister());
+        viewPager.setAdapter(pagerAdapter);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
+    class AuthenticationPagerAdapter extends FragmentPagerAdapter {
+        private ArrayList<Fragment> fragmentList = new ArrayList<>();
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
+        public AuthenticationPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
+        @Override
+        public Fragment getItem(int i) {
+            return fragmentList.get(i);
+        }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
+        @Override
+        public int getCount() {
+            return fragmentList.size();
+        }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
+        void addFragmet(Fragment fragment) {
+            fragmentList.add(fragment);
+        }
     }
 }

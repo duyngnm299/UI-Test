@@ -7,19 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class SecondActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
     ImageView btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
 
-        setContentView(R.layout.second_activity);
+        setContentView(R.layout.profile_activity);
         btnBack = (ImageView) findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
