@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".FragmentRegister">
+    tools:context=".RegisterActivity">
 
     <TextView
         android:id="@+id/tv_logo"
@@ -93,27 +93,28 @@
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_custom"
-            android:fontFamily="@font/roboto_regular"
+            android:layout_centerInParent="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="30dp"
-            android:layout_centerInParent="true"
-            android:textColor="@android:color/white"
-            android:text="@string/register"/>
+            android:background="@drawable/btn_custom"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/register"
+            android:textColor="@android:color/white" />
 
         <ImageView
+            android:id="@+id/clickLeft"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/ic_arrow_left"
-            android:layout_above="@id/swipeLeft"
+            android:layout_above="@id/tvClickLeft"
             android:layout_centerHorizontal="true"/>
 
         <TextView
-            android:id="@+id/swipeLeft"
+            android:id="@+id/tvClickLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/swipe_right_for_login"
+            android:text="@string/click_for_login"
             android:textSize="15sp"
             android:fontFamily="@font/roboto_regular"
             android:layout_centerHorizontal="true"
