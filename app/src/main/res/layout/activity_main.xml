@@ -9,6 +9,70 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
 
+
+    </androidx.viewpager.widget.ViewPager>
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Danh Sách Sinh Viên"
+            android:textAlignment="center"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/indigo_daisy"></TextView>
+
+        <EditText
+            android:fontFamily="@font/indigo_daisy"
+            android:id="@+id/edName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:hint="Nhập tên"></EditText>
+
+        <EditText
+            android:fontFamily="@font/indigo_daisy"
+            android:id="@+id/edMaSV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edName"
+            android:layout_margin="10dp"
+
+            android:hint="Nhập mã SV"></EditText>
+
+        <Button
+            android:fontFamily="@font/indigo_daisy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edMaSV"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPrimary"
+            android:padding="20dp"
+            android:text="Thêm"
+            android:textColor="@color/white"
+            android:textSize="24dp"></Button>
+    </RelativeLayout>
+    <ListView
+        android:layout_below="@+id/rl1"
+    android:id="@+id/listViewSV"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true" />
 </RelativeLayout>
