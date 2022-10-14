@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Layout;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -30,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout menu;
     ListView lvSinhVien;
     FloatingActionButton btnThem;
+    EditText edt_search;
+    ImageView btn_search;
+    TextView tvName, tvMaSV;
     User user;
+    SinhVien sinhVien;
     int vitri = -1;
     DatabaseHandler db = new DatabaseHandler(this);
     SqliteHelper dbus = new SqliteHelper(this);
@@ -58,9 +64,7 @@ public class MainActivity extends AppCompatActivity {
         lvSinhVien.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
                 vitri = i + 1;
-//                Toast.makeText(MainActivity.this, "a" + vitri, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
                 intent.putExtra("username", usn);
                 intent.putExtra("avatar", sinhVienList.get(i).getAvatar());
@@ -98,6 +102,37 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        edt_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                final List<SinhVien> sinhVienList = new ArrayList<SinhVien>();
+                List<SinhVien> list = db.searchSV(edt_search.getText().toString());
+                sinhVienList.addAll(list);
+                adapter = new SinhVienAdapter(MainActivity.this, R.layout.activity_dong_sinh_vien, sinhVienList);
+                lvSinhVien.setAdapter(adapter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final List<SinhVien> sinhVienList = new ArrayList<SinhVien>();
+                List<SinhVien> list = db.searchSV(edt_search.getText().toString());
+                sinhVienList.addAll(list);
+                adapter = new SinhVienAdapter(MainActivity.this, R.layout.activity_dong_sinh_vien, sinhVienList);
+                lvSinhVien.setAdapter(adapter);
+
+            }
+        });
     }
 
 //    private void updateSinhVien() {
@@ -126,6 +161,9 @@ public class MainActivity extends AppCompatActivity {
         menu = (LinearLayout) findViewById(R.id.menuWrapper);
 
         header_main = (RelativeLayout) findViewById(R.id.header_main);
+
+        edt_search = (EditText) findViewById(R.id.edt_search);
+        btn_search = (ImageView) findViewById(R.id.btn_search);
     }
 
 }

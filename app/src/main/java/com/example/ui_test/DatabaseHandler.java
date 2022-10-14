@@ -102,10 +102,10 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         db.close();
     }
 
-    public SinhVien getStudent(int studentId) {
+    public SinhVien getStudent(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_NAME, null, KEY_ID + " = ?", new String[] { String.valueOf(studentId) },null, null, null);
+        Cursor cursor = db.query(TABLE_NAME, null, KEY_NAME + " = ?", new String[] { name },null, null, null);
         if(cursor != null)
             cursor.moveToFirst();
         SinhVien sinhVien = new SinhVien();
@@ -137,8 +137,8 @@ public class DatabaseHandler extends SQLiteOpenHelper{
                 sinhVien.setDiachi(cursor.getString(2));
                 sinhVien.setMaSV(cursor.getString(3));
                 sinhVien.setAvatar(Integer.parseInt(cursor.getString(4)));
-                sinhVien.setSdt(cursor.getString(6));
                 sinhVien.setEmail(cursor.getString(5));
+                sinhVien.setSdt(cursor.getString(6));
                 sinhVien.setLopSH(cursor.getString(7));
 //                ;
                 // Adding note to list
@@ -187,6 +187,34 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_NAME, KEY_NAME + " = ?", new String[] { name });
         db.close();
+    }
+
+    public List<SinhVien> searchSV(String name) {
+        List<SinhVien>  sinhVienList = new ArrayList<SinhVien>();
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + KEY_NAME + " like '%"+name+"%'";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        cursor.moveToFirst();
+
+        if (cursor.moveToFirst()) {
+            do {
+                SinhVien sinhVien = new SinhVien();
+                sinhVien.setId(Integer.parseInt(cursor.getString(0)));
+                sinhVien.setTen(cursor.getString(1));
+                sinhVien.setDiachi(cursor.getString(2));
+                sinhVien.setMaSV(cursor.getString(3));
+                sinhVien.setAvatar(Integer.parseInt(cursor.getString(4)));
+                sinhVien.setEmail(cursor.getString(5));
+                sinhVien.setSdt(cursor.getString(6));
+                sinhVien.setLopSH(cursor.getString(7));
+//                ;
+                // Adding note to list
+                sinhVienList.add(sinhVien);
+            } while (cursor.moveToNext());
+        }
+        return sinhVienList;
     }
 
 }

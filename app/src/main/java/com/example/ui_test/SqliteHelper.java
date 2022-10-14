@@ -158,4 +158,19 @@ public class SqliteHelper extends SQLiteOpenHelper {
         us.setPassword(cursor.getString(4));
         return us;
     }
+
+    public User getUserByName(String name) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_USERS, null, KEY_NAME + " = ?", new String[] { name },null, null, null);
+        if(cursor != null)
+            cursor.moveToFirst();
+        User us = new User();
+        us.setId(cursor.getString(0));
+        us.setName(cursor.getString(1));
+        us.setUserName(cursor.getString(2));
+        us.setEmail(cursor.getString(3));
+        us.setPassword(cursor.getString(4));
+        return us;
+    }
 }
