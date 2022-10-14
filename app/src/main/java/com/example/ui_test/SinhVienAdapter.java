@@ -48,7 +48,7 @@ public class SinhVienAdapter extends BaseAdapter {
         SinhVien sinhVien = sinhVienList.get(i);
         tvTen.setText(sinhVien.getTen());
         tvMaSV.setText(sinhVien.getMaSV());
-        avatar.setImageResource(sinhVien.getHinh());
+        avatar.setImageResource(sinhVien.getAvatar());
 
         return view;
     }
