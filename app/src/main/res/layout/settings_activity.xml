@@ -42,7 +42,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textColor="@color/white"
-            android:fontFamily="@font/cr"/>
+            android:fontFamily="@font/helveticaneue"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -57,7 +57,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textColor="@color/white"
-            android:fontFamily="@font/cr"/>
+            android:fontFamily="@font/helveticaneue"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -72,7 +72,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textColor="@color/white"
-            android:fontFamily="@font/cr"/>
+            android:fontFamily="@font/helveticaneue"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"

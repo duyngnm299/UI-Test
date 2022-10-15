@@ -74,8 +74,11 @@
 
 
     </LinearLayout>
-
-    <RelativeLayout
+    <ScrollView
+        android:layout_below="@id/linlay1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/linlay1">
@@ -93,13 +96,13 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:text="Họ tên:"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp"></TextView>
@@ -108,7 +111,7 @@
                     android:id="@+id/add_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:hint="Nhập họ tên:"
                     android:inputType="textNoSuggestions"
 
@@ -121,13 +124,13 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:text="Địa chỉ:"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp"></TextView>
@@ -136,7 +139,7 @@
                     android:id="@+id/add_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:hint="Nhập địa chỉ"
                     android:inputType="textEmailAddress"
                     android:textColor="#000000"
@@ -148,13 +151,13 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:text="Mã sinh viên:"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp"></TextView>
@@ -165,7 +168,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
 
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:hint="Nhập mã sinh viên"
                     android:textColor="#000000"
                     android:textSize="12dp"></EditText>
@@ -177,13 +180,13 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:text="Email:"
 
                     android:textColor="@color/colorPrimary"
@@ -193,7 +196,7 @@
                     android:id="@+id/add_Email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:hint="Nhập email"
                     android:textColor="#000000"
                     android:inputType="textNoSuggestions"
@@ -207,13 +210,13 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:text="Số điện thoại:"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp"></TextView>
@@ -223,7 +226,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:hint="Nhập số điện thoại"
 
                     android:inputType="number"
@@ -234,17 +237,16 @@
             </LinearLayout>
 
             <LinearLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:text="Lớp sinh hoạt:"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp"></TextView>
@@ -253,7 +255,7 @@
                     android:id="@+id/add_lopSH"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:hint="Nhập lớp sinh hoạt"
                     android:inputType="textNoSuggestions"
 
@@ -324,4 +326,5 @@
 
 
     </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

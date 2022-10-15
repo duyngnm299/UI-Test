@@ -4,8 +4,11 @@ public class User {
     public String id;
     public String name;
     public String userName;
+    public String chucVu;
     public String email;
     public String password;
+
+
 
     public User() {}
 
@@ -13,18 +16,28 @@ public class User {
         this.password = password;
     }
 
-    public User(String name, String email, String userName, String password) {
+    public User(String name, String email, String chucVu, String userName, String password) {
         this.name = name;
         this.email = email;
+        this.chucVu = chucVu;
         this.userName = userName;
         this.password = password;
     }
-    public User(String id, String name, String email, String userName, String password) {
+    public User(String id, String name, String email, String chucVu, String userName, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.chucVu = chucVu;
         this.userName = userName;
         this.password = password;
+    }
+
+    public String getChucVu() {
+        return chucVu;
+    }
+
+    public void setChucVu(String chucVu) {
+        this.chucVu = chucVu;
     }
 
     public String getId() {

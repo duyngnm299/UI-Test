@@ -47,6 +47,7 @@
             android:layout_above="@+id/footer"
             android:orientation="vertical">
             <LinearLayout
+                android:id="@+id/searchWrapper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -59,7 +60,7 @@
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/et_custom"
                     android:padding="10dp"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:layout_gravity="center_vertical"
                     android:hint="Nhập tên sinh viên"></EditText>
                 <ImageView
@@ -72,7 +73,31 @@
                     android:src="@drawable/search_icon"
                     ></ImageView>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tổng sinh viên: "
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:gravity="center_vertical"
+                    />
+                <TextView
+                    android:id="@+id/countSV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="italic"
+                    android:gravity="center_vertical"
+                    android:textSize="22dp"/>
 
+            </LinearLayout>
             <ListView
                 android:id="@+id/listViewSV"
                 android:layout_width="match_parent"
@@ -112,6 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:paddingLeft="5dp"
+
                     android:text="Trang chủ"
                     android:textColor="@color/white"
                     android:textSize="20sp"></TextView>

@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String username = lg_username.getText().toString();
                 String pw = lg_password.getText().toString();
-                User currentUser = db.Authenticate(new User(null, null, username, pw));
+                User currentUser = db.Authenticate(new User(null, null, null, username, pw));
                 if (currentUser != null) {
                     Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);

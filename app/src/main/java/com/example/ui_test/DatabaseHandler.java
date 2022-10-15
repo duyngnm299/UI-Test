@@ -3,6 +3,7 @@ package com.example.ui_test;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper{
-    private static final String DATABASE_NAME = "QLiSinhVien";
+    private static final String DATABASE_NAME = "QuaLiSinhVien";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "SinhVien";
     private static final String KEY_ID = "id" ;
@@ -167,6 +168,25 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
         // return count
         return count;
+    }
+
+    public String rowCount() {
+        String count;
+        String countQuery = "SELECT COUNT(id) FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+
+        if (cursor.moveToFirst()) {
+
+            count = String.valueOf(cursor.getInt(0));
+        }
+        else {
+            count = "0";
+        }
+        db.close();
+        return count;
+
+
     }
 
     public void updateStudent(String nameUpdate, String name, String address, String maSV, String email, String SDT, String lopSH) {

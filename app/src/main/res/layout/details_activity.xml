@@ -45,12 +45,12 @@
             android:layout_marginTop="15sp"
             android:layout_marginRight="20dp"
             android:background="@null"
-            android:fontFamily="@font/cr"
+            android:fontFamily="@font/helveticaneue"
             android:hint="Nhập tên"
             android:inputType="textNoSuggestions"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="30sp"></EditText>
+            android:textSize="25sp"></EditText>
 
         <EditText
             android:id="@+id/details_address"
@@ -62,12 +62,12 @@
             android:layout_marginTop="10sp"
             android:layout_marginRight="20dp"
             android:background="@null"
-            android:fontFamily="@font/cr"
+            android:fontFamily="@font/helveticaneue"
             android:hint="Nhập địa chỉ"
             android:inputType="textNoSuggestions"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="18sp"></EditText>
+            android:textSize="16sp"></EditText>
 
         <ImageView
             android:id="@+id/btnBack"
@@ -142,7 +142,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:text="Mã sinh viên:"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp"></TextView>
@@ -152,7 +152,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:hint="Nhập mã sinh viên"
                     android:inputType="textNoSuggestions"
                     android:textColor="#000000"
@@ -175,7 +175,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:text="Email:"
 
                     android:textColor="@color/colorPrimary"
@@ -186,7 +186,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:hint="Nhập email"
                     android:inputType="textNoSuggestions"
                     android:textColor="#000000"
@@ -209,7 +209,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:text="Số điện thoại:"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp"></TextView>
@@ -219,7 +219,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:hint="Nhập số điện thoại"
                     android:inputType="textNoSuggestions"
                     android:textColor="#000000"
@@ -243,7 +243,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:text="Lớp sinh hoạt:"
 
                     android:textColor="@color/colorPrimary"
@@ -254,7 +254,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
-                    android:fontFamily="@font/cr"
+                    android:fontFamily="@font/helveticaneue"
                     android:hint="Nhập lớp sinh hoạt"
                     android:inputType="textNoSuggestions"
                     android:textColor="#000000"

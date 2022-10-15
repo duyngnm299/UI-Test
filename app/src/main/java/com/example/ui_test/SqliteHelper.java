@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class SqliteHelper extends SQLiteOpenHelper {
 
     //DATABASE NAME
-    public static final String DATABASE_NAME = "usersManage";
+    public static final String DATABASE_NAME = "usersManager";
 
     //DATABASE VERSION
     public static final int DATABASE_VERSION = 1;
@@ -30,6 +30,9 @@ public class SqliteHelper extends SQLiteOpenHelper {
     //COLUMN email
     public static final String KEY_EMAIL = "email";
 
+    public static final String KEY_CHUC_VU = "chucVu";
+
+
     //COLUMN password
     public static final String KEY_PASSWORD = "password";
 
@@ -40,7 +43,8 @@ public class SqliteHelper extends SQLiteOpenHelper {
             + KEY_NAME + " TEXT, "
             + KEY_USER_NAME + " TEXT, "
             + KEY_EMAIL + " TEXT, "
-            + KEY_PASSWORD + " TEXT"
+            + KEY_PASSWORD + " TEXT, "
+            + KEY_CHUC_VU + " TEXT"
             + " ) ";
 
 
@@ -76,6 +80,9 @@ public class SqliteHelper extends SQLiteOpenHelper {
         //Put username in @values
         values.put(KEY_USER_NAME, user.getUserName());
 
+        values.put(KEY_CHUC_VU, user.getChucVu());
+
+
         //Put email in @values
         values.put(KEY_EMAIL, user.getEmail());
 
@@ -90,6 +97,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, user.getName());
         values.put(KEY_EMAIL, user.getEmail());
+        values.put(KEY_CHUC_VU, user.getChucVu());
         values.put(KEY_USER_NAME, user.getUserName());
         values.put(KEY_PASSWORD, user.getPassword());
         // updating row
@@ -110,7 +118,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
     public User Authenticate(User user) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_USERS,// Selecting Table
-                new String[]{KEY_ID, KEY_NAME, KEY_USER_NAME, KEY_EMAIL, KEY_PASSWORD},//Selecting columns want to query
+                new String[]{KEY_ID, KEY_NAME, KEY_CHUC_VU, KEY_USER_NAME, KEY_PASSWORD},//Selecting columns want to query
                 KEY_USER_NAME + "=?",
                 new String[]{user.getUserName()},//Where clause
                 null, null, null);
@@ -130,7 +138,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
     public boolean isUsernameExists(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_USERS,// Selecting Table
-                new String[]{KEY_ID, KEY_NAME, KEY_EMAIL, KEY_USER_NAME, KEY_PASSWORD},//Selecting columns want to query
+                new String[]{KEY_ID, KEY_NAME, KEY_EMAIL, KEY_CHUC_VU, KEY_USER_NAME, KEY_PASSWORD},//Selecting columns want to query
                 KEY_USER_NAME + "=?",
                 new String[]{username},//Where clause
                 null, null, null);
@@ -156,21 +164,8 @@ public class SqliteHelper extends SQLiteOpenHelper {
         us.setUserName(cursor.getString(2));
         us.setEmail(cursor.getString(3));
         us.setPassword(cursor.getString(4));
+        us.setChucVu(cursor.getString(5));
         return us;
     }
 
-    public User getUserByName(String name) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = db.query(TABLE_USERS, null, KEY_NAME + " = ?", new String[] { name },null, null, null);
-        if(cursor != null)
-            cursor.moveToFirst();
-        User us = new User();
-        us.setId(cursor.getString(0));
-        us.setName(cursor.getString(1));
-        us.setUserName(cursor.getString(2));
-        us.setEmail(cursor.getString(3));
-        us.setPassword(cursor.getString(4));
-        return us;
-    }
 }

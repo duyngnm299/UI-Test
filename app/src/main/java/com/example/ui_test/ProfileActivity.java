@@ -19,7 +19,7 @@ public class ProfileActivity extends AppCompatActivity {
     User user;
     ImageView btnBack, btnSave, profile_avatar;
     EditText profile_name, profile_email, profile_username;
-    TextView profile_pw;
+    TextView profile_pw, profile_chucvu;
     SqliteHelper db = new SqliteHelper(this);
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,7 @@ public class ProfileActivity extends AppCompatActivity {
         profile_avatar.setImageResource(R.drawable.ic_user);
         profile_name.setText(user.getName());
         profile_email.setText(user.getEmail());
+        profile_chucvu.setText(user.getChucVu());
         profile_username.setText(user.getUserName());
         profile_pw.setText(user.getPassword());
 
@@ -51,7 +52,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(ProfileActivity.this, "Đã lưu thay đổi!", Toast.LENGTH_SHORT).show();
-                db.updateUser(usnn, new User(profile_name.getText().toString(), profile_email.getText().toString(), profile_username.getText().toString(), profile_pw.getText().toString()));
+                db.updateUser(usnn, new User(profile_name.getText().toString(), profile_email.getText().toString(), profile_chucvu.getText().toString(), profile_username.getText().toString(), profile_pw.getText().toString()));
                 Intent intent = new Intent(ProfileActivity.this, SettingsActivity.class);
                 intent.putExtra("username", usnn);
                 startActivity(intent);
@@ -68,6 +69,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         profile_name = (EditText) findViewById(R.id.profile_name);
         profile_email = (EditText) findViewById(R.id.profile_email);
+        profile_chucvu = (TextView) findViewById(R.id.profile_chucvu);
         profile_username = (EditText) findViewById(R.id.profile_username);
         profile_pw = (TextView) findViewById(R.id.profile_pw);
 

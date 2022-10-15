@@ -34,9 +34,10 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton btnThem;
     EditText edt_search;
     ImageView btn_search;
-    TextView tvName, tvMaSV;
+    TextView countSV;
     User user;
     SinhVien sinhVien;
+
     int vitri = -1;
     DatabaseHandler db = new DatabaseHandler(this);
     SqliteHelper dbus = new SqliteHelper(this);
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 
         Intent intent1 = getIntent();
@@ -56,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
         sinhVienList.addAll(list);
         AnhXa();
 
+        String count = db.rowCount();
+
+        countSV.setText(count);
 //        updateSinhVien();
 
         adapter = new SinhVienAdapter(this, R.layout.activity_dong_sinh_vien, this.sinhVienList);
@@ -65,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 vitri = i + 1;
+
                 Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
                 intent.putExtra("username", usn);
                 intent.putExtra("avatar", sinhVienList.get(i).getAvatar());
@@ -115,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 sinhVienList.addAll(list);
                 adapter = new SinhVienAdapter(MainActivity.this, R.layout.activity_dong_sinh_vien, sinhVienList);
                 lvSinhVien.setAdapter(adapter);
+
             }
 
             @Override
@@ -130,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 sinhVienList.addAll(list);
                 adapter = new SinhVienAdapter(MainActivity.this, R.layout.activity_dong_sinh_vien, sinhVienList);
                 lvSinhVien.setAdapter(adapter);
+
 
             }
         });
@@ -164,6 +172,8 @@ public class MainActivity extends AppCompatActivity {
 
         edt_search = (EditText) findViewById(R.id.edt_search);
         btn_search = (ImageView) findViewById(R.id.btn_search);
+
+        countSV = (TextView) findViewById(R.id.countSV);
     }
 
 }
