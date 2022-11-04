@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">Ứng dụng quản lí sinh viên</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="click_for_register">Đến trang đăng kí</string>
+    <string name="login">Đăng Nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="e_mail">Email</string>
+    <string name="tag">Đăng Nhập</string>
+    <string name="click_for_login">Quay lại trang đăng nhập</string>
+    <string name="register">Đăng Kí</string>
+    <string name="re_type_password">Nhập lại mật khẩu</string>
+    <string name="your_name">Họ tên</string>
+</resources>
