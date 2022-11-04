@@ -76,7 +76,7 @@ public class User {
         return password410;
     }
 
-    public void setPassword(String password410) {
-        this.password410 = password410;
+    public void setPassword(String passwor410) {
+        this.password410 = passwor410;
     }
 }
